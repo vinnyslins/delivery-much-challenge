@@ -1,4 +1,4 @@
-interface Recipe {
+export interface RecipeResponse {
   title: string
   href: string
   ingredients: string
@@ -9,5 +9,5 @@ export default interface RecipePuppy {
   title: string
   version: number
   href: string
-  results: Recipe[]
+  results: RecipeResponse[]
 }
