@@ -1,7 +1,9 @@
 import express from 'express'
 
+import routes from './routes/Recipe'
+
 const app = express()
 
-app.get('/', (req, res) => res.send('Hello, Delivery Much!!!'))
+app.use('/api', routes)
 
 export default app
