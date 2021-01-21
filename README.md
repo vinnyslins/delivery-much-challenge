@@ -20,6 +20,10 @@ yarn start:dev
 yarn test
 ```
 
+## Next steps
+
+- [ ] Add caching
+
 ## Author
 
 👤 **Vinnys Lins**
