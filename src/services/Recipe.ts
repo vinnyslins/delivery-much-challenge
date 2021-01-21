@@ -4,11 +4,11 @@ import Recipe from '../models/Recipe'
 import RecipePuppy, { RecipeResponse } from './models/RecipePuppy'
 import { getGif } from './Giphy'
 
-const client = axios.create({
+export const client = axios.create({
   baseURL: process.env.RECIPE_PUPPY_URL
 })
 
-const buildRecipe = async (recipe: RecipeResponse): Promise<Recipe> => {
+export const buildRecipe = async (recipe: RecipeResponse): Promise<Recipe> => {
   const title = recipe.title.replace(/\[a-z]/g, '').trim()
 
   return {
