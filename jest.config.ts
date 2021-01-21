@@ -5,9 +5,11 @@ export default {
     'src/**/*.ts'
   ],
   coverageDirectory: 'coverage',
-  // coveragePathIgnorePatterns: [
-  //   "/node_modules/"
-  // ],
+  coveragePathIgnorePatterns: [
+    'src/index.ts',
+    'src/models',
+    'src/services/models'
+  ],
   coverageProvider: 'v8',
   preset: 'ts-jest',
   testEnvironment: 'node'
