@@ -1,7 +1,7 @@
 import * as RecipeService from '../../src/services/Recipe'
 import * as GiphyService from '../../src/services/Giphy'
-import RecipePuppy from '../mocks/RecipePuppy'
-import Recipes from '../mocks/Recipes'
+import recipePuppy from '../mocks/recipe-puppy'
+import recipes from '../mocks/recipes'
 
 describe('Recipe services', () => {
   beforeAll(() => {
@@ -30,11 +30,11 @@ describe('Recipe services', () => {
 
   describe('getRecipes function', () => {
     it('should fetch recipes with the respective gifs', async () => {
-      jest.spyOn(RecipeService.client, 'get').mockResolvedValue({ data: RecipePuppy })
+      jest.spyOn(RecipeService.client, 'get').mockResolvedValue({ data: recipePuppy })
 
       const ingredients = ['onions', 'tomato']
 
-      await expect(RecipeService.getRecipes(ingredients, 1)).resolves.toEqual(Recipes)
+      await expect(RecipeService.getRecipes(ingredients, 1)).resolves.toEqual(recipes)
     })
   })
 })
