@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const client = axios.create({
+export const client = axios.create({
   baseURL: process.env.GIPHY_URL,
   params: {
     api_key: process.env.GIPHY_KEY
