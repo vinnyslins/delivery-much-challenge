@@ -1,0 +1,69 @@
+openapi: 3.0.0
+info:
+  title: Delivery Much software engineering challenge
+  description: Delivery Much software engineering challenge made by Vinnys Lins
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000/api
+    description: Local server
+tags:
+  - name: Recipes
+paths:
+  /recipes:
+    get:
+      tags:
+        - Recipes
+      summary: Returns a list of recipes given a list of ingredients
+      parameters:
+        - in: query
+          name: i
+          description: Ingredients
+          required: true
+          explode: false
+          schema:
+            type: array
+            items:
+              type: string
+        - in: query
+          name: p
+          description: Page
+          schema:
+            type: integer
+      responses:
+        200:
+          description: A JSON of recipes
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  keywords:
+                    type: array
+                    items:
+                      type: string
+                  recipes:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Recipe'
+        400:
+          description: Query parameter error
+        500:
+          description: Internal server error
+components:
+  schemas:
+    Recipe:
+      properties:
+        title:
+          type: string
+        ingredients:
+          type: array
+          items:
+            type: string
+        link:
+          type: string
+        gif:
+          type: string
+      required:
+        - title
+        - ingredients
+        - link
